@@ -8,6 +8,22 @@
   </head>
   <body>
     <header>
+      <div class="account-control">
+        <button
+          id="account-toggle"
+          type="button"
+          aria-label="Teacher account"
+          aria-expanded="false"
+          aria-controls="account-menu"
+        >
+          👤
+        </button>
+        <div id="account-menu" class="account-menu hidden">
+          <span id="teacher-name" class="hidden"></span>
+          <button id="login-open" type="button">Teacher login</button>
+          <button id="logout-button" type="button" class="hidden">Log out</button>
+        </div>
+      </div>
       <h1>Mergington High School</h1>
       <h2>Extracurricular Activities</h2>
     </header>
@@ -15,6 +31,7 @@
     <main>
       <section id="activities-container">
         <h3>Available Activities</h3>
+        <p id="teacher-notice">Sign in as a teacher to manage registrations.</p>
         <div id="activities-list">
           <!-- Activities will be loaded here -->
           <p>Loading activities...</p>
@@ -40,6 +57,31 @@
         <div id="message" class="hidden"></div>
       </section>
     </main>
+
+    <dialog id="login-dialog" aria-labelledby="login-title">
+      <form id="login-form">
+        <h3 id="login-title">Teacher login</h3>
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input id="username" name="username" autocomplete="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+          />
+        </div>
+        <p id="login-error" class="error hidden" role="alert"></p>
+        <div class="dialog-actions">
+          <button type="button" id="login-cancel" class="secondary-button">Cancel</button>
+          <button type="submit">Log in</button>
+        </div>
+      </form>
+    </dialog>
 
     <footer>
       <p>&copy; 2026 Mergington High School</p>
